@@ -1,0 +1,18 @@
+<div>
+    <input type="text" [(ngModel)]="title" />
+    {{ title }}
+    <input type="text" [(ngModel)]="power" />
+    {{ power | exponencial }}
+    <button (click)="addItem()">Add Item</button>
+    <button (click)="deleteAll()">Delete All</button>
+    <div *ngIf="title === 'name'">Esto es un titulo</div>
+  
+    <ul>
+      <li *ngIf="names.length === 0">La lista esta vacia</li>
+      <li *ngFor="let items of names; index as i">
+        {{ items }}, {{ i }}
+        <button (click)="deleteItem(i)">delete</button>
+      </li>
+    </ul>
+  </div>
+  
