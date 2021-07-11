@@ -33,6 +33,12 @@ const routes: Routes = [
         loadChildren: () =>
           import('./demo/demo.module').then((m) => m.DemoModule),
       },
+      
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('./about/about.module').then((m) => m.AboutModule),
+      },
     ],
   },  
   {
