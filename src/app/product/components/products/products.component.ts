@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/product.model'; 
+import { Product } from 'src/app/product.model';
+
+import { ProductsService } from 'src/app/core/services/products/products.service';
 
 @Component({
   selector: 'app-products',
@@ -7,6 +9,8 @@ import { Product } from 'src/app/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+
+  // products: Product[] = []
 
   products: Product[] = [
     {
@@ -58,9 +62,33 @@ export class ProductsComponent implements OnInit {
     console.log(id);
   }
 
-  constructor() { }
+  constructor(
+    // private productsService : ProductsService
+  ) { }
 
   ngOnInit(): void {
+    // this.fetchProducts
   }
+
+  // fetchProducts(){
+  //   this.productsService.getAllProducts()
+  //   .subscribe(products => {
+  //     this.products = product;
+  //   })
+  // }
+    // createProduct(){
+      // const newProduct: Product {
+      //   id: '222',
+      //   title: 'nuevo desde angular',
+      // image: 'assets/images/banner-1.jpg',
+      // price: 3000,
+      // description: 'new product'
+      // }
+  //   this.productsService.createProduct(newProduct)
+  //   .subscribe(products => {
+  //     this.products = product;
+  //   })
+  // }
+
 
 }

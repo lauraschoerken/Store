@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/product.model'; 
 
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,7 +54,9 @@ export class ProductsService {
   ];
 
 
-  constructor() { }
+  constructor(
+    //provate http: Httpclient
+  ) { }
 
   getAllProducts(){
     return this.products;
@@ -61,4 +65,21 @@ export class ProductsService {
   getProduct(id: string){
     return this.products.find(item => id === item.id);
   }
+
+  // getAllProducts(){
+  //   return this.http.get<Product[]>("https://platzi-store.herokuapp.com/products/")
+  // }
+  // getProduct(id : string){
+  //   return this.http.get("https://platzi-store.herokuapp.com/products/${id}")
+  // }
+  // createProduct (product:Product){
+  //   return this.http.post('https://platzi-store.herokuapp.com/products/', product);
+  // // }
+  // updateProduct(id : string), change: partial<Product>){
+  // this.http.put(`${environment.url_api}/products/${id}`, changes);
+  // }
+  // deleteProduct(id: string){
+  // this.http.delete("https://platzi-store.herokuapp.com/products/${id}")
+  // }
+
 }
