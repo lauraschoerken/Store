@@ -23,8 +23,12 @@
     <div class="box" mail>
       <ul>
       <h3>Contact</h3>
-      <a href="contact"  mat-raised-button matBadgeColor="accent"
-      ><mat-icon>mail</mat-icon> send mail</a>
+
+      <mat-form-field>
+        <input matInput placeholder="write your mail" [formControl]="emailField" type="email">
+      </mat-form-field>
+      <a href=""  mat-raised-button matBadgeColor="accent" [disabled]="emailField.invalid" (click)="sendMail()"
+      ><mat-icon>mail</mat-icon>email</a>
         
       </ul>
     </div>
