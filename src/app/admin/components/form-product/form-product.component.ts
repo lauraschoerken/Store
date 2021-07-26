@@ -21,6 +21,10 @@ export class FormProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveProduct() {
+    console.log(this.form.value)
+  }
+
   private buildrform() {
     this.form = this.formBuilder.group({
       id: ['',[Validators.required]],

@@ -29,6 +29,7 @@
       </mat-form-field>
       <a href=""  mat-raised-button matBadgeColor="accent" [disabled]="emailField.invalid" (click)="sendMail()"
       ><mat-icon>mail</mat-icon>email</a>
+      <p [hidden]="emailField.valid" >The mail is not valid</p>
         
       </ul>
     </div>
