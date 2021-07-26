@@ -34,6 +34,10 @@ const routes: Routes = [
         path:'products/create',
         component: FormProductComponent,
       },
+      {
+        path:'products/edit/:id',
+        component: FormProductComponent,
+      },
       
     ]
   }

@@ -1,48 +1,76 @@
 <form [formGroup]="form" (ngSubmit)="saveProduct()">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Product</mat-card-title>
-        </mat-card-header>
-    </mat-card>
-    <mat-card-content>
-        <div class="row">
-            <div class="col-xs">
-                <mat-form-field>
-                    <input formControlName="id" placeholder="id" matInput type="text">
-                </mat-form-field>
-            </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Product</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input formControlName="id" placeholder="id" matInput type="text" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input
+            formControlName="title"
+            placeholder="title"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input
+            formControlName="price"
+            placeholder="price"
+            matInput
+            type="number"
+          />
+        </mat-form-field>
+        <div *ngIf="form.controls.price.hasError && form.controls.price.dirty">
+          <p *ngIf="form.controls.price?.hasError('price_invalid')">
+            The price is too high
+          </p>
+          <p *ngIf="form.controls.price?.hasError('required')">
+            The price is invalid
+          </p>
         </div>
-        <div class="row">
-            <div class="col-xs">
-                <mat-form-field>
-                    <input formControlName="title" placeholder="title" matInput type="text">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs">
-                <mat-form-field>
-                    <input formControlName="price" placeholder="price" matInput type="number">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs">
-                <mat-form-field>
-                    <input formControlName="image" placeholder="image" matInput type="text">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs">
-                <mat-form-field>
-                    <textarea formControlName="description" placeholder="description" matInput></textarea>
-                </mat-form-field>
-            </div>
-        </div>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button type="submit">Save</button>
-    </mat-card-actions>
-   
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input
+            formControlName="image"
+            placeholder="image"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <textarea
+            formControlName="description"
+            placeholder="description"
+            matInput
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button [disabled]="form.invalid" mat-raised-button type="submit">
+      Save
+    </button>
+  </mat-card-actions>
 </form>
